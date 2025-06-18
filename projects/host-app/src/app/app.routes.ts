@@ -19,4 +19,16 @@ export const routes: Routes = [
         .catch((err) => console.error('Error loading LoginComponent:', err));
     },
   },
+  {
+    path: 'banner',
+    loadComponent: () => {
+      return loadRemoteModule({
+        remoteEntry: 'http://localhost:4400/remoteEntry.js',
+        exposedModule: './BannerComponent',
+        type: 'module',
+      })
+        .then((m) => m.BannerComponent)
+        .catch((err) => console.error('Error loading BannerComponent:', err));
+    },
+  },
 ];

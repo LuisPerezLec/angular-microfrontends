@@ -212,6 +212,216 @@
 					}
 				}
 			}
+		},
+		"mfe-app2": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/mfe-app2",
+			"sourceRoot": "projects/mfe-app2/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/mfe-app2",
+						"index": "projects/mfe-app2/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/mfe-app2/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/mfe-app2/public",
+								"output": "."
+							}
+						],
+						"styles": [
+							"projects/mfe-app2/src/styles.scss"
+						],
+						"scripts": [],
+						"main": "projects/mfe-app2/src/main.ts",
+						"extraWebpackConfig": "projects/mfe-app2/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "4kB",
+									"maximumError": "8kB"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/mfe-app2/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "mfe-app2:build:production",
+							"extraWebpackConfig": "projects/mfe-app2/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "mfe-app2:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4400,
+						"publicHost": "http://localhost:4400",
+						"extraWebpackConfig": "projects/mfe-app2/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/mfe-app2/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/mfe-app2/public"
+							}
+						],
+						"styles": [
+							"projects/mfe-app2/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"smfe-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/smfe-app",
+			"sourceRoot": "projects/smfe-app/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/smfe-app",
+						"index": "projects/smfe-app/src/index.html",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "projects/smfe-app/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/smfe-app/public",
+								"output": "."
+							}
+						],
+						"styles": [
+							"projects/smfe-app/src/styles.scss"
+						],
+						"scripts": [],
+						"main": "projects/smfe-app/src/main.ts",
+						"extraWebpackConfig": "projects/smfe-app/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "4kB",
+									"maximumError": "8kB"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/smfe-app/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "smfe-app:build:production",
+							"extraWebpackConfig": "projects/smfe-app/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "smfe-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4400,
+						"publicHost": "http://localhost:4400",
+						"extraWebpackConfig": "projects/smfe-app/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/smfe-app/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/smfe-app/public"
+							}
+						],
+						"styles": [
+							"projects/smfe-app/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
 		}
 	}
 }
